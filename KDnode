@@ -1,4 +1,4 @@
-class KDnode{
+public class KDnode{
     Word word;
     KDNode left;
     KDNode right;

@@ -34,5 +34,32 @@ public class Kdnn {
 	    }
 	    
 	    reader.close();
-	}	
+	}
+
+
+
+private KDnode buildTree(List<Word> words, int depth) {
+        if (words.isEmpty()) {
+            return null;
+        }
+        
+        int axis = depth % d;
+        
+            // Sort words based on the current axis
+       points.sort(new Comparator<Point>() { 
+        @Override
+         public int compare( Word a, Word b) {
+          return Float.compare(a.vec[axis], b.vec[axis]); } });
+
+            // Get median of words
+        int medianIdx = words.size() / 2;
+        Point medianPoint = words.get(medianIdx);
+        
+            // Create nodes and build subtrees
+        KdNode node = new KdNode(medianPoint, depth);
+        node.left = buildTree(words.subList(0, medianIdx), depth + 1);
+        node.right = buildTree(words.subList(medianIdx + 1, words.size()), depth + 1);
+        
+        return node;
+    }
 }

@@ -38,7 +38,7 @@ public class Kdnn {
 
 
 
-private KdNode buildTree(List<Word> words, int depth) {
+private KDnode buildTree(List<Word> words, int depth) {
         if (words.isEmpty()) {
             return null;
         }
@@ -49,8 +49,7 @@ private KdNode buildTree(List<Word> words, int depth) {
        points.sort(new Comparator<Point>() { 
         @Override
          public int compare( Word a, Word b) {
-          return Float.compare(a.vec[axis], b.vec[axis]);
-           } });
+          return Float.compare(a.vec[axis], b.vec[axis]); } });
 
             // Get median of words
         int medianIdx = words.size() / 2;

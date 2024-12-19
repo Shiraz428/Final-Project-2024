@@ -1,0 +1,15 @@
+class KDnode{
+    Word word;
+    KDNode left;
+    KDNode right;
+
+    public KDnode(){
+    	this.word = null;
+    	this.left = null;
+    	this.right = null;
+    }
+
+    public KDnode(Word word) {
+        this.word = word;
+    }
+}

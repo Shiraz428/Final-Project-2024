@@ -1,3 +1,38 @@
-public class Kdnn{
-	
+import java.io.*;
+import java.util.*;	
+
+public class Kdnn {
+	private KDnode rootnode;
+	private int d;
+	private List<Word> words;
+
+	public Kdnn(List<Word> words) {
+	    this.rootnode = null;
+	    this.words = new ArrayList<>();
+	}
+
+	public void buildFromFile(String filename) throws IOException {
+	    BufferedReader reader = new BufferedReader(new FileReader(filename));
+	    String firstLine = reader.readLine();
+	    String[] params = firstLine.split(" ");
+	    int numWords = Integer.parseInt(params[0]);
+	    this.d = Integer.parseInt(params[1]);
+	    
+	    // Read all points
+	    for (int i = 0; i < numWords; i++) {
+	        String line = reader.readLine();
+	        String[] parts = line.split(" ");
+	        String w = parts[0];
+	        float[] dims = new float[d];
+	        
+	        for (int j = 0; j < d; j++) {
+	            dims[j] = Float.parseFloat(parts[j + 1]);
+	        }
+	        
+	        Word word = new Word(w, dims);
+	        words.add(word);
+	    }
+	    
+	    reader.close();
+	}	
 }

@@ -46,7 +46,7 @@ private KDnode buildTree(List<Word> words, int depth) {
         int axis = depth % d;
         
             // Sort words based on the current axis
-       points.sort(new Comparator<Point>() { 
+       points.sort(new Comparator<Word>() { 
         @Override
          public int compare( Word a, Word b) {
           return Float.compare(a.vec[axis], b.vec[axis]); } });

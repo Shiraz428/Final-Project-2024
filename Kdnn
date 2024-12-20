@@ -53,10 +53,10 @@ private KDnode buildTree(List<Word> words, int depth) {
 
             // Get median of words
         int medianIdx = words.size() / 2;
-        Point medianPoint = words.get(medianIdx);
+        Word medianPoint = words.get(medianIdx);
         
             // Create nodes and build subtrees
-        KdNode node = new KdNode(medianPoint, depth);
+        KDnode node = new KDnode(medianWord, depth);
         node.left = buildTree(words.subList(0, medianIdx), depth + 1);
         node.right = buildTree(words.subList(medianIdx + 1, words.size()), depth + 1);
         

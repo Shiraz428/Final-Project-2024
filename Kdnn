@@ -63,7 +63,7 @@ private KDnode buildTree(List<Word> words, int depth) {
         return node;
     }
 
-public boolean verifyAllPoints() {
+public boolean verifyAllWords() {
         List<Word> numWords = new ArrayList<>();
         collectWords(rootnode, numWords);
         

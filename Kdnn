@@ -6,7 +6,7 @@ public class Kdnn {
 	private int d;
 	private List<Word> words;
 
-	public Kdnn(List<Word> words) {
+	public Kdnn() {
 	    this.rootnode = null;
 	    this.words = new ArrayList<>();
 	}

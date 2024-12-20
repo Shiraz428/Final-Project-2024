@@ -62,4 +62,37 @@ private KDnode buildTree(List<Word> words, int depth) {
         
         return node;
     }
+
+public boolean verifyAllPoints() {
+        List<Word> numWords = new ArrayList<>();
+        collectWords(rootnode, numWords);
+        
+        if (numWords.size() != words.size()) {
+            return false;
+        }
+        
+        // Create a set of words for easier comparison
+        Set<String> originalWords = new HashSet<>();
+        Set<String> treeWords = new HashSet<>();
+        
+        for (Word w : words) {
+            originalWords.add(w.word);
+        }
+        
+        for (Word w : numWords) {
+            treeWords.add(w.word);
+        }
+        
+        return originalWords.equals(treeWords);
+    }	
+
+    private void collectWords(KDnode node, List<Word> words) {
+        if (node == null) {
+            return;
+        }
+        
+        words.add(node.word);
+        collectWords(node.left, words);
+        collectWords(node.right, words);
+    }
 }

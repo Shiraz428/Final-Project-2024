@@ -1,7 +1,8 @@
 public class KDnode{
     Word word;
-    KDNode left;
-    KDNode right;
+    KDnode left;
+    KDnode right;
+    int depth;
 
     public KDnode(){
     	this.word = null;
@@ -9,7 +10,10 @@ public class KDnode{
     	this.right = null;
     }
 
-    public KDnode(Word word) {
+    public KDnode(Word word, int depth) {
         this.word = word;
+        this.depth = depth;
+        this.left = null;
+    	this.right = null;
     }
 }
